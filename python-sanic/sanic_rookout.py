@@ -31,7 +31,7 @@ async def load_rookout():
 
 
 def start_server():
-    # app.add_task(load_rookout())
+    app.add_task(load_rookout())
     app.run(host='localhost',
             port=os.environ.get('PORT', 3000),
             access_log=False,
