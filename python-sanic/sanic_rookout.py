@@ -8,6 +8,9 @@ app = Sanic(__name__)
 
 @app.route("/")
 async def test_async(request):
+    print("test1")
+    print("test2")
+    print("test3")
     return response.json({"test": True})
 
 
@@ -28,7 +31,7 @@ async def load_rookout():
 
 
 def start_server():
-    app.add_task(load_rookout())
+    # app.add_task(load_rookout())
     app.run(host='localhost',
             port=os.environ.get('PORT', 3000),
             access_log=False,
