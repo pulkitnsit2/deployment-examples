@@ -5,13 +5,16 @@ from sanic.exceptions import ServerError
 
 app = Sanic(__name__)
 
+
 @app.route("/")
 async def test_async(request):
     return response.json({"test": True})
 
+
 @app.route("/exception")
 def exception(request):
     raise ServerError("It's dead jim")
+
 
 @app.route("/await")
 async def test_await(request):
@@ -20,17 +23,17 @@ async def test_await(request):
     return response.text("I'm feeling sleepy")
 
 
-
 async def load_rookout():
     from rook import auto_start
 
 
 def start_server():
     app.add_task(load_rookout())
-    app.run(host='0.0.0.0',
-            port=os.environ.get('PORT', 5000),
+    app.run(host='localhost',
+            port=os.environ.get('PORT', 3000),
             access_log=False,
             debug=False,
             workers=3)
+
 
 start_server()
