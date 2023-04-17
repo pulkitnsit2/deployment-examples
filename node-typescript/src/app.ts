@@ -4,6 +4,11 @@
 const rookout = require('rookout');
 rookout.start();
 
+import * as lightrun from 'lightrun';
+lightrun.start({
+  lightrunSecret: '',
+});
+
 const express = require("express");
 const app = express();
 
