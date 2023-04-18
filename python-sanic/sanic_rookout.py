@@ -8,6 +8,9 @@ app = Sanic(__name__)
 
 @app.route("/")
 async def test_async(request):
+    print("test1")
+    print("test2")
+    print("test3")
     return response.json({"test": True})
 
 
