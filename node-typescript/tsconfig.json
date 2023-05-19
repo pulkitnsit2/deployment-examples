@@ -1,8 +1,7 @@
 {
     "compilerOptions": {
         "outDir": "dist",
-        "inlineSources": true,
-        "inlineSourceMap": true
+        "sourceMap": true,
     },
     "include": [
         "src/**/*"

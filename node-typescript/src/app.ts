@@ -1,12 +1,8 @@
-#!/usr/bin/env node
+require("dotenv").config();
 
-"use strict";
 const rookout = require('rookout');
-rookout.start();
-
-import * as lightrun from 'lightrun';
-lightrun.start({
-  lightrunSecret: '',
+rookout.start({
+  token: process.env.ROOKOUT_TOKEN
 });
 
 const express = require("express");
@@ -18,6 +14,7 @@ app.get('/', (req, res) => {
   res.send("Hello World");
   console.log("Hello3")
 });
+
 app.get("/hello/:name", (req, res) => {
   console.log("Hello4")
   console.log("Hello5")
@@ -25,4 +22,6 @@ app.get("/hello/:name", (req, res) => {
   console.log("Hello6")
 });
 
+console.log("Starting server")
 app.listen(3000);
+console.log("Server started")
