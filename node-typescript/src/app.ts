@@ -1,4 +1,5 @@
 require("dotenv").config();
+import { logger } from './winston'
 
 const rookout = require('rookout');
 rookout.start({
@@ -9,17 +10,16 @@ const express = require("express");
 const app = express();
 
 app.get('/', (req, res) => {
-  console.log("Hello1")
-  console.log("Hello2")
+  logger.info("Info / log1")
   res.send("Hello World");
-  console.log("Hello3")
 });
 
 app.get("/hello/:name", (req, res) => {
-  console.log("Hello4")
-  console.log("Hello5")
+  logger.info("Info /hello log1")
+  logger.info("Info /hello log2")
+  logger.debug("Debug /hello log1")
+  logger.debug("Debug /hello log2")
   res.send("Hello, " + req.params.name);
-  console.log("Hello6")
 });
 
 console.log("Starting server")
